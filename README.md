@@ -1,4 +1,3 @@
-
 # GodModeToken
 
 This repository contains a smart contract for an ERC20 token called "GodModeToken", which allows the contract owner to transfer tokens between any addresses, bypassing the usual restrictions. The contract is based on the OpenZeppelin framework and licensed under UNLICENSED.
@@ -8,7 +7,6 @@ An ERC20 token is a standard for creating tokens on the Ethereum blockchain, it 
 The "**GodModeToken**" contract inherits functionality from the OpenZeppelin "Ownable" and "ERC20" contracts. The "**Ownable**" contract provides an "**owner**" address, which is the address that deploys the contract and has special privileges, like the ability to call certain functions that other addresses cannot. The ERC20 contract provides all the standard function that an ERC20 token should have.
 
 The contract's constructor initializes the token with a name and symbol, and also mints **100,000,000** tokens to the address that deploys the contract.
-
 
 ## Note
 
