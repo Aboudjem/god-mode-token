@@ -1,46 +1,79 @@
-# Advanced Sample Hardhat Project
 
-This project demonstrates an advanced Hardhat use case, integrating other tools commonly used alongside Hardhat in the ecosystem.
+# GodModeToken
 
-The project comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts. It also comes with a variety of other tools, preconfigured to work with the project code.
+This repository contains a smart contract for an ERC20 token called "GodModeToken", which allows the contract owner to transfer tokens between any addresses, bypassing the usual restrictions. The contract is based on the OpenZeppelin framework and licensed under UNLICENSED.
 
-Try running some of the following tasks:
+An ERC20 token is a standard for creating tokens on the Ethereum blockchain, it defines a set of rules that a token contract must follow in order to be considered an ERC20 token. These rules include a standard set of functions for transferring tokens, checking balances, and approving third-party transfers.
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-npx hardhat help
-REPORT_GAS=true npx hardhat test
-npx hardhat coverage
-npx hardhat run scripts/deploy.ts
-TS_NODE_FILES=true npx ts-node scripts/deploy.ts
-npx eslint '**/*.{js,ts}'
-npx eslint '**/*.{js,ts}' --fix
-npx prettier '**/*.{json,sol,md}' --check
-npx prettier '**/*.{json,sol,md}' --write
-npx solhint 'contracts/**/*.sol'
-npx solhint 'contracts/**/*.sol' --fix
-```
+The "**GodModeToken**" contract inherits functionality from the OpenZeppelin "Ownable" and "ERC20" contracts. The "**Ownable**" contract provides an "**owner**" address, which is the address that deploys the contract and has special privileges, like the ability to call certain functions that other addresses cannot. The ERC20 contract provides all the standard function that an ERC20 token should have.
 
-# Etherscan verification
+The contract's constructor initializes the token with a name and symbol, and also mints **100,000,000** tokens to the address that deploys the contract.
 
-To try out Etherscan verification, you first need to deploy a contract to an Ethereum network that's supported by Etherscan, such as Ropsten.
 
-In this project, copy the .env.example file to a file named .env, and then edit it to fill in the details. Enter your Etherscan API key, your Ropsten node URL (eg from Alchemy), and the private key of the account which will send the deployment transaction. With a valid .env file in place, first deploy your contract:
+## Note
 
-```shell
-hardhat run --network ropsten scripts/sample-script.ts
-```
+Be aware that the `transferFrom` function allows the contract owner to transfer tokens between any addresses, regardless of the restriction. Use this contract with caution and always review the code before using it.
 
-Then, copy the deployment address and paste it in to replace `DEPLOYED_CONTRACT_ADDRESS` in this command:
+Also, it is important to note that the contract is licensed under UNLICENSED, which means that the code is not associated with any open-source license. It means that the user of the contract should be aware of the legal implications of using this code.
 
-```shell
-npx hardhat verify --network ropsten DEPLOYED_CONTRACT_ADDRESS "Hello, Hardhat!"
-```
+## Scripts
 
-# Performance optimizations
+This repository includes the following scripts in the `package.json` file:
 
-For faster runs of your tests and scripts, consider skipping ts-node's type checking by setting the environment variable `TS_NODE_TRANSPILE_ONLY` to `1` in hardhat's environment. For more details see [the documentation](https://hardhat.org/guides/typescript.html#performance-optimizations).
+### Test
+
+`npm run test`
+
+This command runs the test suite for the contract using the Hardhat testing framework. It will execute the command `npx hardhat test`, which will run all the tests in the project. The tests are used to check that the contract behaves as expected and to ensure that any changes made to the contract don't break existing functionality.
+
+### Test with coverage
+
+`npm run test:coverage`
+
+This command runs the test suite and generates a coverage report for the contract. It will execute the command `npx hardhat coverage`, which will run all the tests in the project and also generate a coverage report. A coverage report shows how much of the contract's code is being executed by the test suite.
+
+### Compile
+
+`npm run compile`
+
+This command compiles the contract using the Hardhat compiler. It will execute the command `npx hardhat compile`, which will compile the contract code, and generate the bytecode and ABI needed to deploy the contract on the Ethereum blockchain.
+
+### Lint TypeScript
+
+`npm run lint:ts`
+
+This command runs the ESLint linter on all TypeScript files in the project. It will execute the command `npx eslint '**/*.ts'`, which will check all TypeScript files in the project against a set of linting rules and report any errors or warnings.
+
+### Lint TypeScript and fix issues
+
+`npm run lint:ts-fix`
+
+This command runs the ESLint linter on all TypeScript files in the project and automatically fix any issues it finds.
+
+### Lint Solidity
+
+`npm run lint:sol`
+
+This command runs the Prettier and Solhint linters on all the Solidity files in the project. It will execute the command `npx prettier '**/*.{json,sol,md}' --check && npx solhint 'contracts/**/*.sol'`, which will check all the solidity files in the project against a set of linting rules and report any errors or warnings.
+
+### Lint Solidity and fix issues
+
+`npm run lint:sol-fix`
+
+This command runs the Prettier and Solhint linters on all the Solidity files in the project and automatically fix any issues it finds.
+
+### Lint all
+
+`npm run lint`
+
+This command runs both TypeScript and Solidity linters in the project.
+
+### Lint all and fix issues
+
+`npm run lint:fix`
+
+This command runs both TypeScript and Solidity linters in the project and automatically fix any issues it finds.
+
+## Contribution
+
+We welcome contributions to this repository. If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
