@@ -1,3 +1,5 @@
+> **Archived on 2026-11: a 2023 teaching example of a token its owner can move at will. Not audited, never deploy it.**
+
 # GodModeToken
 
 This repository contains a smart contract for an ERC20 token called "GodModeToken", which allows the contract owner to transfer tokens between any addresses, bypassing the usual restrictions. The contract is based on the OpenZeppelin framework and licensed under UNLICENSED.
